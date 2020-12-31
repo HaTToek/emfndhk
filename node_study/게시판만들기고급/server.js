@@ -56,7 +56,7 @@ app.use(function(req, res, next){
 // Router
 app.use('/',require('./routes/home'));
 app.use('/posts', util.getPostQueryString, require('./routes/posts'));
-app.use('/users',require('./routes/users'));
+app.use('/users', require('./routes/users'));
 app.use('/comments', util.getPostQueryString, require('./routes/comments'));
 
 // Port setting

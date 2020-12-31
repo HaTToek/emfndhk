@@ -58,8 +58,8 @@ router.get('/:username/edit',util.isLoggedin,checkPermission, function(req, res)
     }
     else {
       res.render('users/edit', { username:req.params.username, user:user, errors:errors });
-    }
-  });
+}
+});
   
 // update
 router.put('/:username',util.isLoggedin,checkPermission, function(req, res, next){
@@ -120,7 +120,7 @@ function parseError(errors){
 function checkPermission(req, res, next){
     User.findOne({username:req.params.username}, function(err, user){
         if(err) return res.json(err);
-        if(user.id != req.user.id) return util.noPermission(req.res);
+        if(user.id != req.user.id) return util.noPermission(req, res);
 
         next();
     });

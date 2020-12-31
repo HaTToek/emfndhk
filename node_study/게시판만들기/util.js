@@ -1,10 +1,10 @@
 //여러 곳에서 공통으로 쓰게 될 함수
 var util    =   {};
 
-util.parseError =   function(errors){
-    var parsed  =   {};
-    if(errors.name  ==  'ValidationError'){
-        for(var name in errors.errors){
+util.parseError = function(errors){
+    var parsed = {};
+    if(errors.name == 'ValidationError') {
+        for(let name in errors.errors) {
             var ValidationError =   errors.errors[name];
             parsed[name]    =   { message:ValidationError.message};
         }
@@ -15,17 +15,16 @@ util.parseError =   function(errors){
     else {
         parsed.unhandled = JSON.stringify(errors);
     }
+
     return parsed;
 }
 
 // 사용자가 로그인 되었는지 아닌지를 판독하여 로그인이 되지 않을 경우 사용자를 에러 메세지와 함께 로그인 페이지로 보내는 함수
 util.isLoggedin =   function(req, res, next){
-    if(req.isAuthenticated()){
-        next();
-    }else{
-        req.flash('errors',{login:'Please login first'});
-        res.redirect('/login');
-    }
+    if(req.isAuthenticated()) next();
+    
+    req.flash('errors',{login:'Please login first'});
+    res.redirect('/login');
 }
 
 util.noPermission   =   function(req,res){

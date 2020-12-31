@@ -13,14 +13,14 @@ mongoose.set('useNewUrlParser', true);
 mongoose.set('useFindAndModify', false);  
 mongoose.set('useCreateIndex', true);     
 mongoose.set('useUnifiedTopology', true);
-let url         =  "mongodb://localhost:27017/node_st";
+const url         =  "mongodb://localhost:27017/node_st";
 mongoose.connect(url, {useNewUrlParser: true, useUnifiedTopology: true});
 var db = mongoose.connection; 
 db.once('open', function(){//db가 연결이 된 경우
-    console.log('DB connected');
+  console.log('DB connected');
 });
 db.on('error', function(err){//db 연결 중 에러가 발생한 경우 
-    console.log('DB ERROR : ', err);
+  console.log('DB ERROR : ', err);
 });
 
 // Other settings
