@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style type="text/css">
+        #selected{
+            color:red;
+        }
+        .dark {
+            background-color:black;
+            color:white;
+        }
+        .dark #selected{
+            color:yellow;
+        }
+        .iii{
+            background-color: blue;
+        }
+        
+    </style>
+</head>
+<body class="asd">
+    <ul class="iii">
+        <li>HTML</li>
+        <li>CSS</li>
+        <li id="selected">JavaScript</li>
+    </ul>
+    <input type="button" onclick="document.body.className='dark'" value="dark" />
+</body>
+</html>
